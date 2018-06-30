@@ -1,8 +1,9 @@
 <template lang="pug">
   section.container
-    | portfolio
+    div.title
+      | unipota
     br
-    nuxt-link(to="/about")
+    nuxt-link(to="/about/")
       | about
 </template>
 
@@ -16,12 +17,15 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.title {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 100px;
+  border: solid 2px #666666;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 </style>
