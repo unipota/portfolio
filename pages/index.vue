@@ -39,7 +39,8 @@ export default {
 <style lang="sass">
 .logo-wrap
   width: 250px
-  margin: 30vh auto 0
+  margin: auto
+  padding-top: 30vh
   @media screen and (max-width:480px)
     &
       transform: scale(0.8)

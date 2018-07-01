@@ -1,7 +1,7 @@
 <template lang="pug">
-  section
-    div.works-container
-      div.work(v-for="d in data")
+  section(v-bind:class="{'is-opened': isOpened}")
+    transition-group(name="list" tag="div").works-container
+      div.work(v-for="(d,i) in listdata" :key="i")
         img(:src="d.img")
         div.work-back(v-if="d.background" :style="{'background':d.background}")
 </template>
@@ -10,7 +10,8 @@
 export default {
   data(){
     return {
-      data: [
+      isOpened: false,
+      works: [
         {
           name: "RobotLove",
           img: "/img/robotlove.png"
@@ -24,7 +25,11 @@ export default {
           img: "/img/titech.png"
         },
         {
-          name: "デザイン研究会",
+          name: "デザイン研究会 名刺",
+          img: "/img/deken_meishi.png"
+        },
+        {
+          name: "デザイン研究会 ロゴ",
           img: "/img/deken_logo.png"
         },
         {
@@ -152,18 +157,29 @@ export default {
           name: "traP logo",
           img: "/img/logo_text_official.svg"
         },
-      ]
+      ],
+      currentList: []
+    }
+  },
+  computed: {
+    listdata: function() {
+      return this.works
     }
   }
 }
 </script>
 
 <style lang="sass">
+.is-opened
+  transform: scale(0.6)
 .works-container
   display: flex
+  justify-content: center
+  align-items: center
   flex-wrap: wrap
-  margin: 120px auto
-  max-width: 500px
+  margin: 0 auto
+  padding: 120px 0
+  max-width: 800px
   width: 90%
 .work
   display: flex
@@ -185,4 +201,8 @@ export default {
     width: 100%
     height: 100%
     z-index: -1
+.list-enter
+  opacity: 0
+.list-enter-active
+  transition: all .5s ease
 </style>
