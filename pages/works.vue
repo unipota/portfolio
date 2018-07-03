@@ -1,10 +1,5 @@
 <template lang="pug">
   section
-    transition-group(name="list" tag="div").works-container
-      div.work(v-for="(d,i) in listdata" :key="i" @click="openWindow(i)")
-        // div.description
-        //   | {{d.name}}
-        img(:src="d.img")
     div.description(v-if="isOpened")
       div.border1
       div.border2
@@ -18,6 +13,12 @@
           | {{works[currentId].name}}
         span.work-description
           | {{works[currentId].description}}
+    div.overlay(v-if="isOpened" @click="isOpened=false")
+    transition-group(name="list" tag="div").works-container
+      div.work(v-for="(d,i) in listdata" :key="i" @click="openWindow(i)")
+        // div.description
+        //   | {{d.name}}
+        img(:src="d.img")
 </template>
 
 <script>
@@ -191,6 +192,11 @@ export default {
 </script>
 
 <style lang="sass">
+.overlay
+  position: fixed
+  width: 100vw
+  height: 100vh
+  z-index: 150
 .description-container
   padding: 5px
   width: 100%
@@ -201,6 +207,7 @@ export default {
   opacity: 0
   animation: fade .8s ease .4s
   animation-fill-mode: forwards
+  overflow-x: hidden
 .img-container
   margin-top: 10px
   width: 200px
@@ -216,6 +223,7 @@ export default {
   font-size: 25px
   font-weight: 400
   position: relative
+  text-align: center
   &:after
     content: ''
     position: absolute
@@ -271,6 +279,7 @@ export default {
   height: 150px
   transition: all .5s ease
   border: solid 1px rgba(0,0,0,0)
+  cursor: pointer
   &:hover
     border-color: #666666
   img
