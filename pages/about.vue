@@ -41,7 +41,18 @@
             | Interest:
           td.bold(align="left")
             | VueJS, Golang, UI/UX
-      
+      div.icon-container
+        a(href="https://github.com/unipota" target="_blank")
+          div.icon
+            img(src="~/assets/img/github.svg")
+        a(href="https://www.facebook.com/woz.xt" target="_blank")
+          div.icon
+            img(src="~/assets/img/fb.svg")
+        a(href="https://twitter.com/sigmative" target="_blank")
+          div.icon
+            img(src="~/assets/img/twitter.svg")
+        // div.icon
+        //   img(src="~/assets/img/mail.svg")
 </template>
 
 <script>
@@ -54,4 +65,15 @@ export default {
 .about-container
 .bold
   font-weight: 600
+.icon-container
+  margin-top: 10px
+  display: flex
+  align-items: center
+  justify-content: center
+.icon
+  margin: 0 3px
+  width: 30px
+  height: 30px
+  img
+    max-width: 100%
 </style>

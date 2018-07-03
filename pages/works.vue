@@ -128,8 +128,8 @@ export default {
         //   description: "Illust: @KNJ"
         // },
         {
-          name: "チズケ研究会",
-          img: "/img/cheese_logo.png",
+          name: "チズケ研究会 Logo",
+          img: "/img/cheese_labo2.png",
           tags: ["Logo Design","Illustrator"]
         },
         {
@@ -279,6 +279,7 @@ export default {
   margin-top: 20px
   display: flex
   flex-wrap: wrap
+  justify-content: center
 .tag
   background: #666666
   color: white
