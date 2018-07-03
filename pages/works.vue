@@ -46,7 +46,7 @@ export default {
           tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "Tokyo Tech Laboratory",
+          name: "Tokyo Tech Library",
           img: "/img/titech.png",
           tags: ["Graphic Design","Illustrator"]
         },
