@@ -4,17 +4,17 @@
       nuxt-link(to="/")
         | unipota
     div.menu
-        div.link.disabled
+        div.link.disabled(ontouchstart="")
           nuxt-link(to="/about/")
             | About
-        div.link
+        div.link(ontouchstart="")
           nuxt-link(to="/works/")
             | Works
     nuxt.page-container
 </template>
 
 <style lang="sass">
-@import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css')
+@import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css')
 @import url('https://fonts.googleapis.com/css?family=Quicksand')
 
 html
@@ -67,6 +67,7 @@ a
   right: 30px
   font-size: 20px
 .link
+  position: relative
   background: #666666
   color: white
   margin: 0 10px
@@ -75,19 +76,18 @@ a
     padding: 10px 15px
     width: 100%
     height: 100%
-  position: relative
   &:after
     content: ''
     display: block
     position: absolute
-    width: 0%
+    width: 0
     height: 1px
     background: white
     top: 50%
     left: 10%
     transition: all .5s
   &:hover:after
-      width: 80%
+    width: 80%
 .body-container
 .page-container
   background: white

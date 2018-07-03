@@ -46,7 +46,6 @@ export default {
       transform: scale(0.8)
 .wrap1
   position: relative
-  margin-top: 20px
 .wrap2
   position: relative
   top: 90px

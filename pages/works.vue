@@ -1,19 +1,40 @@
 <template lang="pug">
-  section(v-bind:class="{'is-opened': isOpened}")
+  section
     transition-group(name="list" tag="div").works-container
-      div.work(v-for="(d,i) in listdata" :key="i")
+      div.work(v-for="(d,i) in listdata" :key="i" @click="openWindow(i)")
+        // div.description
+        //   | {{d.name}}
         img(:src="d.img")
-        div.work-back(v-if="d.background" :style="{'background':d.background}")
+    div.description(v-if="isOpened")
+      div.border1
+      div.border2
+      div.close-button(@click="isOpened=false")
+        div.v
+        div.h
+      div.description-container
+        div.img-container
+          img(:src="works[currentId].img")
+        span.work-title
+          | {{works[currentId].name}}
+        span.work-description
+          | {{works[currentId].description}}
 </template>
 
 <script>
 export default {
+  methods: {
+    openWindow: function(id) {
+      this.isOpened = true
+      this.currentId = id
+    }
+  },
   data(){
     return {
+      currentId: Number,
       isOpened: false,
       works: [
         {
-          name: "RobotLove",
+          name: "RobotLoveロゴ",
           img: "/img/robotlove.png"
         },
         {
@@ -33,39 +54,39 @@ export default {
           img: "/img/deken_logo.png"
         },
         {
-          name: "",
+          name: "traP公認化記念壁紙",
           img: "/img/traP_wall.png"
         },
         {
-          name: "",
+          name: "traP名刺",
           img: "/img/card2018.png"
         },
         {
-          name: "",
+          name: "工大祭2018公式サイト",
           img: "/img/koudaisai2018.png"
         },
         {
-          name: "",
+          name: "工大祭2018テーマロゴ",
           img: "/img/frontier.png"
         },
         {
-          name: "",
+          name: "traP新歓パンフレット",
           img: "/img/leaflet2018.png"
         },
         {
-          name: "",
+          name: "JIZI新歓サイト",
           img: "/img/jizi_shinkan.png"
         },
         {
-          name: "traQList",
+          name: "traQListロゴ",
           img: "/img/traQList_logo.png"
         },
         {
-          name: "",
+          name: "SkyHighFightロゴ",
           img: "/img/SHF_logo.png"
         },
         {
-          name: "",
+          name: "2018年賀状",
           img: "/img/nenga2018.png"
         },
         {
@@ -73,15 +94,15 @@ export default {
           img: "/img/adc2017.png"
         },
         {
-          name: "",
+          name: "JIZI ネットワーク局",
           img: "/img/network_logo.svg"
         },
         {
-          name: "",
+          name: "工大祭 ビラ",
           img: "/img/bira_2017.png"
         },
         {
-          name: "",
+          name: "工大祭 看板",
           img: "/img/kanban_2017.png"
         },
         {
@@ -91,10 +112,9 @@ export default {
         {
           name: "タクスタ",
           img: "/img/taksta_logo.png",
-          background: "#bbbbbb"
         },
         {
-          name: "",
+          name: "四川屋台 チラシ",
           img: "/img/shisen.png"
         },
         {
@@ -110,7 +130,7 @@ export default {
           img: "/img/hukubukuro_logo.png"
         },
         {
-          name: "traP SoundCollection LabelDesign",
+          name: "traP SoundCollection",
           img: "/img/sound_collection.png"
         },
         {
@@ -118,11 +138,11 @@ export default {
           img: "/img/nobori.png"
         },
         {
-          name: "",
+          name: "工大祭公式サイト2017",
           img: "/img/koudaisai2017.png"
         },
         {
-          name: "traP leaflet2017",
+          name: "traP新歓パンフレット",
           img: "/img/leaflet_2017.png"
         },
         {
@@ -130,7 +150,7 @@ export default {
           img: "/img/adc2016.jpg"
         },
         {
-          name: "Saba Crack",
+          name: "SabaCrack",
           img: "/img/saba_logo.png"
         },
         {
@@ -146,16 +166,17 @@ export default {
           img: "/img/gamecity_logo.png"
         },
         {
-          name: "titeQuest Graphics",
+          name: "titeQuest",
           img: "/img/teq_waiting.gif"
         },
         {
-          name: "traP 名刺 ver.2016",
+          name: "traP名刺",
           img: "/img/card_2016.png"
         },
         {
-          name: "traP logo",
-          img: "/img/logo_text_official.svg"
+          name: "traPロゴ",
+          img: "/img/logo_text_official.svg",
+          description: "東京工業大学デジタル創作同好会traPの公式ロゴ"
         },
       ],
       currentList: []
@@ -170,6 +191,65 @@ export default {
 </script>
 
 <style lang="sass">
+.description-container
+  padding: 5px
+  width: 100%
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  opacity: 0
+  animation: fade .8s ease .4s
+  animation-fill-mode: forwards
+.img-container
+  margin-top: 10px
+  width: 200px
+  height: 200px
+  display: flex
+  justify-content: center
+  align-items: center
+  img
+    max-width: 100%
+    max-height: 100%
+.work-title
+  margin-top: 10px
+  font-size: 25px
+  font-weight: 400
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    bottom: -10px
+    left: 50%
+    transform: translateX(-50%)
+    margin: auto
+    width: calc( 100% + 20px)
+    height: 1px
+    background: #666666
+.work-description
+  margin-top: 20px
+.close-button
+  position: absolute
+  z-index: 200
+  top: -30px
+  right: -10px
+  width: 50px
+  height: 50px
+  background: #666666
+  cursor: pointer
+  .v,.h
+    position: absolute
+    background: white
+    width: 80%
+    height: 2px
+  .v
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%) rotate(-45deg)
+  .h
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%) rotate(45deg)
 .is-opened
   transform: scale(0.6)
 .works-container
@@ -201,8 +281,76 @@ export default {
     width: 100%
     height: 100%
     z-index: -1
+.description
+  position: fixed
+  z-index: 200
+  width: 80%
+  max-width: 800px
+  height: 80%
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  margin: auto
+  transition: all .5s
+  animation: bg-white .8s ease .4s
+  animation-fill-mode: forwards
+  .border1
+    &:before,&:after
+      content: ''
+      position: absolute
+      background: #666666
+    &:before
+      top: 0
+      left: 0
+      width: 100%
+      height: 2px
+      animation: width-border .8s
+    &:after
+      top: 0
+      right: 0
+      height: 100%
+      width: 2px
+      animation: height-border .8s
+  .border2
+    &:before,&:after
+      content: ''
+      position: absolute
+      background: #666666
+    &:before
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 2px
+      animation: width-border .8s
+    &:after
+      bottom: 0
+      left: 0
+      height: 100%
+      width: 2px
+      animation: height-border .8s
 .list-enter
   opacity: 0
 .list-enter-active
   transition: all .5s ease
+@keyframes width-border
+  0%
+    width: 0
+  100%
+    width: 100%
+@keyframes height-border
+  0%
+    height: 0
+  100%
+    height: 100%
+@keyframes bg-white
+  0%
+    background: rgba(0,0,0,0)
+  100%
+    background: rgba(255,255,255,1)
+@keyframes fade
+  0%
+    opacity: 0
+  100%
+    opacity: 1
 </style>
