@@ -30,10 +30,18 @@
             br
             | Web Programming
         tr
+          td(align="right" valign="top")
+            | Skill:
+          td.bold(align="left")
+            | HTML(Pug), CSS(SASS), JS(Vue.js)
+            br
+            | PHP(CakePHP), Adobe Illustrator
+        tr
           td(align="right")
             | Interest:
           td.bold(align="left")
             | VueJS, Golang, UI/UX
+      
 </template>
 
 <script>

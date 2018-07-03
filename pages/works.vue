@@ -11,13 +11,14 @@
           img(:src="works[currentId].img")
         span.work-title
           | {{works[currentId].name}}
+        div.work-tags
+          div.tag(v-for="t in works[currentId].tags")
+            | {{t}}
         span.work-description
           | {{works[currentId].description}}
     div.overlay(v-if="isOpened" @click="isOpened=false")
     transition-group(name="list" tag="div").works-container
       div.work(v-for="(d,i) in listdata" :key="i" @click="openWindow(i)")
-        // div.description
-        //   | {{d.name}}
         img(:src="d.img")
 </template>
 
@@ -35,148 +36,188 @@ export default {
       isOpened: false,
       works: [
         {
-          name: "RobotLoveロゴ",
-          img: "/img/robotlove.png"
+          name: "RobotLove Logo",
+          img: "/img/robotlove.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "双テック logo",
-          img: "/img/sugotech_logo.png"
+          name: "双テック Logo",
+          img: "/img/sugotech_logo.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "東工大図書館",
-          img: "/img/titech.png"
+          name: "Tokyo Tech Laboratory",
+          img: "/img/titech.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "デザイン研究会 名刺",
-          img: "/img/deken_meishi.png"
+          name: "Design Lab. Card",
+          img: "/img/deken_meishi.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "デザイン研究会 ロゴ",
-          img: "/img/deken_logo.png"
+          name: "Design Lab. Logo",
+          img: "/img/deken_logo.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "traP公認化記念壁紙",
-          img: "/img/traP_wall.png"
+          name: "traP Wallpaper",
+          img: "/img/traP_wall.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "traP名刺",
-          img: "/img/card2018.png"
+          name: "traP Card",
+          img: "/img/card2018.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "工大祭2018公式サイト",
-          img: "/img/koudaisai2018.png"
+          name: "Tokyo Tech Fes. Official Site",
+          img: "/img/koudaisai2018.png",
+          tags: ["Web Design","Figma"]
         },
         {
-          name: "工大祭2018テーマロゴ",
-          img: "/img/frontier.png"
+          name: "Tokyo Tech Fes. ThemeLogo",
+          img: "/img/frontier.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "traP新歓パンフレット",
-          img: "/img/leaflet2018.png"
+          name: "traP Welcome Leaflet 2018",
+          img: "/img/leaflet2018.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "JIZI新歓サイト",
-          img: "/img/jizi_shinkan.png"
+          name: "JIZI Welcome Site",
+          img: "/img/jizi_shinkan.png",
+          tags: ["Web Design","HTML","CSS","javascript"]
         },
         {
-          name: "traQListロゴ",
-          img: "/img/traQList_logo.png"
+          name: "traQList Logo",
+          img: "/img/traQList_logo.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "SkyHighFightロゴ",
-          img: "/img/SHF_logo.png"
+          name: "SkyHighFight Logo",
+          img: "/img/SHF_logo.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
-          name: "2018年賀状",
-          img: "/img/nenga2018.png"
+          name: "New Year Card 2018",
+          img: "/img/nenga2018.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "traP AdC2017",
-          img: "/img/adc2017.png"
+          name: "traP AdC 2017",
+          img: "/img/adc2017.png",
+          tags: ["Blog Entry","Advent Calendar"]
         },
         {
-          name: "JIZI ネットワーク局",
-          img: "/img/network_logo.svg"
+          name: "JIZI Network",
+          img: "/img/network_logo.svg",
+          tags: ["Logo Design","Illustrator"]
         },
-        {
-          name: "工大祭 ビラ",
-          img: "/img/bira_2017.png"
-        },
-        {
-          name: "工大祭 看板",
-          img: "/img/kanban_2017.png"
-        },
+        // {
+        //   name: "Tokyo Tech Fes. traP Flyer",
+        //   img: "/img/bira_2017.png",
+        //   tags: ["Graphic Design","Illustrator"],
+        //   description: "Illust: @katsudontkd"
+        // },
+        // {
+        //   name: "Tokyo Tech Fes. traP Signboard",
+        //   img: "/img/kanban_2017.png",
+        //   tags: ["Graphic Design","Illustrator"],
+        //   description: "Illust: @KNJ"
+        // },
         {
           name: "チズケ研究会",
-          img: "/img/cheese_logo.png"
+          img: "/img/cheese_logo.png",
+          tags: ["Logo Design","Illustrator"]
         },
         {
           name: "タクスタ",
           img: "/img/taksta_logo.png",
+          tags: ["Web Application","Vue.js","Pug","SASS"]
         },
         {
-          name: "四川屋台 チラシ",
-          img: "/img/shisen.png"
+          name: "四川屋台 Flyer",
+          img: "/img/shisen.png",
+          tags: ["Graphic Design","Affinity Designer"]
         },
         {
-          name: "traP ポロシャツ",
-          img: "/img/polo_2017.png"
+          name: "traP Polo Shirt",
+          img: "/img/polo_2017.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "traP Tシャツ",
-          img: "/img/tshirt_2017.png"
+          name: "traP T-shirt",
+          img: "/img/tshirt_2017.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "福袋STG logo",
-          img: "/img/hukubukuro_logo.png"
+          name: "福袋STG Logo",
+          img: "/img/hukubukuro_logo.png",
+          tags: ["Logo Design","Affinity Designer"]
         },
         {
-          name: "traP SoundCollection",
-          img: "/img/sound_collection.png"
+          name: "traP SoundCollection LabelDesign",
+          img: "/img/sound_collection.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "traP のぼり",
-          img: "/img/nobori.png"
+          name: "traP Banner",
+          img: "/img/nobori.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "工大祭公式サイト2017",
-          img: "/img/koudaisai2017.png"
+          name: "Tokyo Tech Fes. 2017 OfficialSite",
+          img: "/img/koudaisai2017.png",
+          tags: ["Web Design","HTML","SASS","jQuery"]
         },
         {
-          name: "traP新歓パンフレット",
-          img: "/img/leaflet_2017.png"
+          name: "traP Welcome Leaflet 2017",
+          img: "/img/leaflet_2017.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
           name: "traP AdC2016",
-          img: "/img/adc2016.jpg"
+          img: "/img/adc2016.jpg",
+          tags: ["Blog Entry","Advent Calendar"]
         },
         {
-          name: "SabaCrack",
-          img: "/img/saba_logo.png"
+          name: "SabaCrack Logo",
+          img: "/img/saba_logo.png",
+          tags: ["Logo Design","Affinity Designer"]
         },
         {
-          name: "課金王者ガチャキング",
-          img: "/img/gacha_logo.png"
+          name: "課金王者ガチャキング Logo",
+          img: "/img/gacha_logo.png",
+          tags: ["Logo Design","Affinity Designer"],
+          description: "<a href='https://google.jp'>あああ</a>"
         },
         {
-          name: "traP Collection vol.1",
-          img: "/img/jacket_front_p1.png"
+          name: "traP Collection vol.1 DiscJacket",
+          img: "/img/jacket_front_p1.png",
+          tags: ["Graphic Design","Affinity Designer"]
         },
         {
-          name: "Tokyo Game City",
-          img: "/img/gamecity_logo.png"
+          name: "TokyoGameCity Logo",
+          img: "/img/gamecity_logo.png",
+          tags: ["Logo Design","GIMP"]
         },
         {
-          name: "titeQuest",
-          img: "/img/teq_waiting.gif"
+          name: "titeQuest Graphics",
+          img: "/img/teq_waiting.gif",
+          tags: ["Pixel Art","Aseprite"],
+          description: ""
         },
         {
-          name: "traP名刺",
-          img: "/img/card_2016.png"
+          name: "traP Card",
+          img: "/img/card_2016.png",
+          tags: ["Graphic Design","Illustrator"]
         },
         {
-          name: "traPロゴ",
+          name: "traP Logo",
           img: "/img/logo_text_official.svg",
+          tags: ["Logo Design","Illustrator"],
           description: "東京工業大学デジタル創作同好会traPの公式ロゴ"
         },
       ],
@@ -234,6 +275,17 @@ export default {
     width: calc( 100% + 20px)
     height: 1px
     background: #666666
+.work-tags
+  margin-top: 20px
+  display: flex
+  flex-wrap: wrap
+.tag
+  background: #666666
+  color: white
+  padding: 2px 5px
+  border-radius: 5px
+  margin: 5px 5px
+  word-break: none
 .work-description
   margin-top: 20px
 .close-button

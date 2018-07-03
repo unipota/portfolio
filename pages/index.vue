@@ -40,7 +40,7 @@ export default {
 .logo-wrap
   width: 250px
   margin: auto
-  padding-top: 30vh
+  padding-top: 40vh
   @media screen and (max-width:480px)
     &
       transform: scale(0.8)
