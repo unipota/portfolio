@@ -40,7 +40,7 @@
           td(align="right")
             | Interest:
           td.bold(align="left")
-            | VueJS, Golang, UI/UX
+            | Vue.js, Golang, UI/UX
       div.icon-container
         a(href="https://github.com/unipota" target="_blank")
           div.icon
