@@ -17,19 +17,19 @@ git submodule update
 
 remote=`git ls-remote --heads 2> /dev/null | grep gh-pages || true`
 
+yarn run generate
+
 if [ -n "$remote" ]; then
-  git clone -b gh-pages "${GIT_REPO}" public
-  rm -rf public/*
+  git clone -b gh-pages "${GIT_REPO}"
 else
-  git init public
-  cd public
+  git init dist
+  cd dist
   git checkout -b gh-pages
   git remote add origin "${GIT_REPO}"
   cd ..
 fi
 
-hugo
-cd public
+cd dist
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_USER_EMAIL}"
 git add --all
