@@ -191,7 +191,7 @@ export default {
           name: "課金王者ガチャキング Logo",
           img: "/img/gacha_logo.png",
           tags: ["Logo Design","Affinity Designer"],
-          description: "<a href='https://google.jp'>あああ</a>"
+          description: ""
         },
         {
           name: "traP Collection vol.1 DiscJacket",
