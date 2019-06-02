@@ -17,31 +17,27 @@ jobs:
           paths:
             - node_modules
           key: npm-{{ checksum "package.json" }}
-      # run tests!
-      # - run:
-      #     name: deploy
-      #     command: ./deploy.sh
   deploy:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - npm-{{ checksum "package.json" }}
+          keys:
+            - npm-{{ checksum "package.json" }}
       - run: npm install
       - run: git config user.name $GIT_USER_NAME
       - run: git config user.email $GIT_USER_EMAIL
-      - run: npm run generate
-      - run: npm run deploy
+      - run: npm run generate:gh-pages
+      - run: npm run deploy:gh-pages
 workflows:
   version: 2
   build-deploy:
     jobs:
       - build
       - deploy:
-        requires:
-          - build
-        filters:
-          branches:
-            only: master
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
