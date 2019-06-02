@@ -1,5 +1,7 @@
 # portfolio
 
+[![CircleCI](https://circleci.com/gh/unipota/portfolio/tree/master.svg?style=svg)](https://circleci.com/gh/unipota/portfolio/tree/master)
+
 > unipota's portfolio
 
 ## Build Setup
