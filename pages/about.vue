@@ -48,7 +48,7 @@
         a(href="https://www.facebook.com/woz.xt" target="_blank")
           div.icon
             img(src="~assets/img/fb.svg")
-        a(href="https://twitter.com/sigmative" target="_blank")
+        a(href="https://twitter.com/unipota" target="_blank")
           div.icon
             img(src="~assets/img/twitter.svg")
         // div.icon
