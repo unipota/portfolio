@@ -26,7 +26,7 @@
           td(align="right" valign="top")
             | Like:
           td.bold(align="left")
-            | UI, Logo Design, 
+            | UI, Logo Design,
             br
             | Web Programming
         tr
@@ -44,20 +44,20 @@
       div.icon-container
         a(href="https://github.com/unipota" target="_blank")
           div.icon
-            img(src="~/assets/img/github.svg")
+            img(src="~assets/img/github.svg")
         a(href="https://www.facebook.com/woz.xt" target="_blank")
           div.icon
-            img(src="~/assets/img/fb.svg")
+            img(src="~assets/img/fb.svg")
         a(href="https://twitter.com/sigmative" target="_blank")
           div.icon
-            img(src="~/assets/img/twitter.svg")
+            img(src="~assets/img/twitter.svg")
         // div.icon
-        //   img(src="~/assets/img/mail.svg")
+        //   img(src="/assets/img/mail.svg")
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 
