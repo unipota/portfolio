@@ -18,8 +18,8 @@
           | {{works[currentId].description}}
     div.overlay(v-if="isOpened" @click="isOpened=false")
     transition-group(name="list" tag="div").works-container
-      div.work(v-for="(d,i) in listdata" :key="i" @click="openWindow(i)")
-        img(:src="d.img")
+      div.work(v-for="(w,i) in works" :key="w.name" @click="openWindow(i)")
+        img(:src="w.img")
 </template>
 
 <script>
@@ -222,11 +222,6 @@ export default {
         },
       ],
       currentList: []
-    }
-  },
-  computed: {
-    listdata: function() {
-      return this.works
     }
   }
 }
